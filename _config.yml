@@ -31,10 +31,10 @@ author:
   name     : Qumarth Jash
   job      : Computer Science student at the University of York
   bio      : "Lover of comedy, rock climbing and programming"
-  thumb    : /images/author.jpg
+  thumb    : /assets/images/author.jpg
   url      : http://qumarth.me
   github   : http://github.com/Q-Mart
-  linkedin : http://linkedin.com/in/q-mart
+  linkedin : http://linkedin.com/in/qmart
 
 # social settings
 og_locale: "pt_BR"

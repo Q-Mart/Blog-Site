@@ -160,6 +160,21 @@ hr {
   @extend .link;
 }
 
+.post ul>li,
+.page ul>li {
+  list-style-type: circle;
+}
+
+.post ol>li,
+.page ol>li {
+  list-style-type: decimal;
+}
+
+.post strong,
+.page strong {
+  font-weight: 700;
+}
+
 .post {
   @extend .clearfix;
 }

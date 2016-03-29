@@ -4,8 +4,13 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+<img src="{{site.author.thumb}}"  
+     alt="A picture of me"
+     align="right"
+     height="386px"
+     width="386px"/>
+I am an undergraduate at the University of York studying for an MEng in Computer Science with Embedded Systems Engineering. I dabble in many languages, including (in no particular order) __python, C, Java, Go and javascript__ to name a few.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+In my spare time I like to __run, rock climb, read and perform stand up comedy__.
+Although, my current favourite hobby is [improv comedy](https://en.wikipedia.org/wiki/Improvisational_theatre#Improvisational_comedy) and therefore, I am a member of the University's resident improv troupe, [The Shambles](http://comedysoc.github.io/shambles-website/) (I also built their website).
