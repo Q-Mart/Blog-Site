@@ -7,8 +7,8 @@ permalink: /about/
 <img src="{{site.author.thumb}}"  
      alt="A picture of me"
      align="right"
-     height="386px"
-     width="386px"/>
+     height="50%"
+     width="50%"/>
 I am an undergraduate at the University of York studying for an MEng in Computer Science with Embedded Systems Engineering. I dabble in many languages, including (in no particular order) __python, C, Java, Go and javascript__ to name a few.
 
 
