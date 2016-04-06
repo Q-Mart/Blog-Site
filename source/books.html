@@ -1,0 +1,13 @@
+---
+layout: page
+title: Book Log
+permalink: /books/
+---
+
+This is a list of books I have read since the beginning of 2016:
+</br>
+<ul>
+  {% for book in site.data.books %}
+    <li><a href="{{book.link}}">{{book.title}} - {{book.author}}</a></li>
+  {% endfor %}
+</ul
