@@ -1,9 +1,7 @@
 
 # SEO settings
 title: Qumarth Jash
-description: "Undergraduate Computer Scientist"
-keywords: "Compute, Science, Qumarth Jash"
-url: http://qumarth.me
+url: http://qumarth.uk
 # baseurl: null
 
 google_analytics:
@@ -29,10 +27,7 @@ sass:
 # Author settings
 author:
   name     : Qumarth Jash
-  job      : Computer Science student at the University of York
-  bio      : "Lover of comedy, rock climbing and programming"
-  thumb    : /assets/images/author.jpg
-  url      : http://qumarth.me
+  url      : http://qumarth.uk
   github   : http://github.com/Q-Mart
   linkedin : http://linkedin.com/in/qmart
 
