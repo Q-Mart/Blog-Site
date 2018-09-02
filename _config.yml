@@ -1,50 +1,50 @@
+# Set theme
+remote_theme: daviddarnes/alembic
 
-# SEO settings
-title: Qumarth Jash
-url: http://qumarth.uk
-# baseurl: null
+# File excludes
+exclude:
+- README.md
+- Gemfile
+- Gemfile.lock
 
-google_analytics:
-repo: http://github.com/nandomoreirame/simplest
+# Set plugins
+plugins:
+- jekyll-sitemap
+- jekyll-mentions
+- jekyll-paginate
+- jekyll-seo-tag
+- jekyll-redirect-from
+- jekyll-default-layout
+- jekyll-feed
+- jemoji
+- jekyll-remote-theme
 
-# Build settings
-permalink   : /:year/:title/
-markdown    : kramdown
-highlighter : pygments
+# Site settings
+url: 'https://mydomain.com'
+baseurl: ''
+title: 'My website'
+description: 'This is my new website'
+permalink: pretty
+logo: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c?s=52"
 
-paginate: 4
-paginate_path: "/page/:num/"
-comments: true
+# Pagination
+paginate: 5
+paginate_path: blog/page:num
 
-source: source
-destination: _site
+# Header nav
+navigation_header:
+  Blog: /blog/
 
-# Sass configuration
-sass:
-  sass_dir: assets/scss
-  style: compressed # expanded
+# Footer nav
+navigation_footer:
+  Back to top: "#top"
 
-# Author settings
-author:
-  name     : Qumarth Jash
-  url      : http://qumarth.uk
-  github   : http://github.com/Q-Mart
-  linkedin : http://linkedin.com/in/qmart
-
-# social settings
-og_locale: "pt_BR"
-twitter_card: "summary_large_image"
-twitter_site: "@nandomoreirame"
-
-gems:
-  - bourbon
-  - jekyll-paginate
-
-# navbar pages
-navbar:
-  - slug : about
-    title: About
-  - slug : blog
-    title: Blog
-
-exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
+# Collections
+collections:
+  posts:
+    title: Posts
+    output: true
+    description: "My thoughts and ideas"
+    feature_text: |
+      Welcome to my blog
+    feature_image: "https://picsum.photos/2560/600?image=866"
