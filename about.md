@@ -5,7 +5,7 @@ permalink: /about/
 tags: about
 ---
 
-- I'm in my final year of the MEng Computer Science with a Year In Industry degree at the University of York.
+- I'm in my final year of the MEng Computer Science with a year in industry degree at the University of York.
 
 - My final year project involves implementing a [ bias lighting system ]( https://lifehacker.com/why-bias-lighting-increases-your-tvs-contrast-and-saves-1695117890 ) on an FPGA using Vivado HLS.
 

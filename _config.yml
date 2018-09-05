@@ -1,9 +1,9 @@
 # Site settings
-title:       Blog
+title:       Qumarth Jash
 author:      Qumarth Jash
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+description: "A final year Computer Science student at the University of York"
 baseurl:     ""
-url:         "http://pixyll.com"
+url:         "qumarth.uk"
 date_format: "%b %-d, %Y"
 header_pages:
  - about.md
