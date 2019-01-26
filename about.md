@@ -12,5 +12,3 @@ tags: about
 - I spent a year in industry as an industrial placement Technology Analyst at Morgan Stanley in which I worked on algorithmic equities trading engines in C++ and a risk calculation engine in Scala.
 
 - Outside of my degree, I have been Assistant Head of Computing at [University Radio York](http://ury.org.uk/) and Artistic Director at the University's improvised comedy troupe, [The Shambles](http://shamblesimprov.co.uk).
-
-- I am currently seeking a graduate Software Engineering opportunity. If you would like to contact me, please do so via [LinkedIn](https://www.linkedin.com/in/qmart).
