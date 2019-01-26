@@ -19,11 +19,18 @@ round, as well as the general architecture of the final system.
 
 ### Contents
 1. [Solving the Letters Round](#solving-the-letters-round)
-2. Solving the Numbers Round
-3. System Architecture
-4. Final Thoughts
+2. [Solving the Numbers Round](#solving-the-numbers-round)
+3. [System Architecture](#system-architecture)
+4. [Final Thoughts](#final-thoughts)
 
 ### Solving the Letters Round
+>#### The Rules of the Round (in a nutshell)
+>Given a random sequence of 9 letters, find the longest word that exists in
+>the sequence. When generating the sequence, you have a choice between a vowel
+>and a consonant. The frequency of the letters is distributed according to
+>their distribution in the English language. You must have at least 3 vowels
+>and 4 consonants. Once the 9 letter sequence is generated, you have 30
+>seconds to find the largest word.
 
 ### Solving the Numbers Round
 
