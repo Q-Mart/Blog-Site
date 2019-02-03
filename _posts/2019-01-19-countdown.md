@@ -3,7 +3,7 @@ layout:     post
 title:      Solving Countdown
 date:       2019-02-03 09:00:00
 summary:    Building a program to solve the rounds of Countdown
-categories: story
+categories: technology
 ---
 
 [Countdown](https://en.wikipedia.org/wiki/Countdown_(game_show)) is an
