@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Solving Countdown
-date:       2019-01-19 09:00:00
+date:       2019-02-03 09:00:00
 summary:    Building a program to solve the rounds of Countdown
 categories: story
 ---
@@ -25,10 +25,9 @@ source code is available on Github for both the
 ### Contents
 1. [Solving the Letters Round](#solving-the-letters-round)
 2. [Solving the Numbers Round](#solving-the-numbers-round)
-4. [An Added Extra](#an-added-extra)
-5. [System Architecture](#system-architecture)
-6. [Final Thoughts](#final-thoughts)
-7. [FAQs](#faqs)
+3. [System Architecture and Brining It To The Real World](#system-architecture-and-bringing-it-to-the-real-world)
+4. [Final Thoughts](#final-thoughts)
+5. [FAQs](#faqs)
 
 ### Solving the Letters Round
 >#### The Rules of the Round (in a nutshell)
@@ -71,7 +70,7 @@ letters with one letter removed.
 Here is a visualisation of it running with the letters being TNETENNBA (read
 the children of each node from left to right):
 
-![Example run of the letters solver](/images/countdown_letters_example.png)
+![Example run of the letters solver](/images/countdown/countdown_letters_example.png)
 
 Initially, the words dictionary was implemented as an in-memory dictionary in
 Python, but I decided to migrate it to Redis. There is no logical reason for
@@ -90,10 +89,101 @@ time.
 >basic mathematical operations (add, subtract, divide and multiply) on the 6
 >randomly chosen numbers.
 
-### An Added Extra
+This was personally quite hard for me. I initially did some googling and came
+across [this blog post](http://blog.blakehemingway.co.uk/?p=46) from Blake
+Hemingway. Essentially you build a tree, where:
+- The root node is the set of 6 numbers
+- The transition to a child node consists of taking a pair of numbers and
+  applying an arithmetic operation to it
+- The child node consists of the 'new set' of numbers, that being the new
+    number created by the arithmetic operation on the pair and the rest of the
+    numbers
 
-### System Architecture
+For example, a tree with the root node being (1,2) will look like this
+![Example of a tree of numbers](/images/countdown/countdown_numbers_example.png)
+
+Once the tree is generated, you simply search for a path from the root node, to
+a node containing the target number, and return the sequence of transitions.
+
+I found that the code provided on Blake's blog was incomplete and did not run
+(in my experience anyway). As well as that, his solution generates a full tree,
+rather than stopping generation when a node is generated that contains the
+target number.
+
+I decided to represent my tree using a custom built `class` in my code, as
+opposed to a `dict` in Blake's case, but this was simply for my own
+readability. As well as this, I added functionality to terminate tree
+generation when the tree contains a node comprised of the target number.
+
+Although this did work, it was way too slow; it took much longer than 30
+seconds to find a solution (I never let it run to completion with a 6 number
+input, as it ran for longer than 90 seconds). So, the only choice was to
+regress back to using a `dict` to represent the graph. This dramatically
+increased speedup; it was able to solve 5 different test cases (including the
+[infamous 952 round](https://www.youtube.com/watch?v=6mCgiaAFCu8)) in under 2
+seconds!
+
+### System Architecture and Bringing It To the Real World
+![System Architecture Diagram](/images/countdown/sysarch.png)
+
+The entire thing essentially consists of two components:
+1. Vorderman: The backend, responsible for actually solving both rounds. It
+   consists of a Flask app, calling functions to solve the rounds.
+2. Riley: The Tornado based web frontend, a (barely) usable UI.
+
+When creating the UI, I set myself the personal challenge of using no
+libraries. I was tired of feeling forced to use things like JQuery, Vue and
+Angular, as well as always using Bootstrap for any websites I created. I felt
+like I didn't truly understand the roots of web technology.
+
+For that reason, the interface just uses plain old Javascript, and I took
+advantage of CSS flexboxes to try and add some structure to the pages.
+Although, the frontend is quite technically simple, it was a good learning
+experience for someone who tries to dodge as much frontend as he can.
+
+As well as this, I was also asked to create something that mimics the target
+number generator in the numbers round for the show, this was simply written in
+Javascript and added to Riley.
+
+The end product consists of 3 docker containers:
+1. Riley is enclosed in one entire container
+2. The Redis Word Dictionary
+3. The Flask App and round solvers of Vorderman
+
+Dockerization meant that setting up my development environment was fairly fast
+and fluid, as well as making deployment super easy. To deploy, I took a
+DigitalOcean VPS, cloned the repositories, wrote the appropriate config files
+and then ran all the Docker containers. **Easy**.
 
 ### Final Thoughts
+When this was used in action, we found that the letters round solver was
+returning some very 'odd' words. I guess this is due to the words list that I
+yanked from Github, so in the future I'm definitely going to consider looking
+at other words lists.
+
+As well as that, a lot of people struggled to read the output solution for the
+numbers round, which is fair. You need to understand how the solver works to
+read the output. This absolutely needs to be changed to be more user friendly.
+
+This was a tough challenge; the algorithmic thinking (specifically for the numbers
+round) did not come easily to me. The time constraints, University work that I
+had to do and other commitments only made this more difficult. Although there
+are many flaws, I am very proud of what I produced, I think I've become a much
+stronger debugger, algorithmic thinker and engineer in total.
 
 ### FAQs
+
+#### Why did you use Tornado and Flask?
+Mainly because this project was for my own learning and I wanted to have a go
+at using both. Also, I originally intended to use WebSockets at one point but
+scrapped the idea, Tornado's existence is a remnant of that.
+
+#### wHY ON EARTH IS THERE NO HTTPS?
+Because time. I barely managed to get this out before the show, I absolutely
+should add HTTPS to this when I get the time.
+
+#### Why the names Vorderman and Riley?
+They're named after superstars from the gameshow itself! [Carol
+Vorderman](https://en.wikipedia.org/wiki/Carol_Vorderman) used to have the role
+of solving the number round in her head on the show, to demonstrate an answer
+to contestants. She's retired now and has been replaced with [Rachel Riley](https://en.wikipedia.org/wiki/Rachel_Riley).
