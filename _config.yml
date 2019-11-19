@@ -3,7 +3,7 @@ title:       Qumarth Jash
 author:      Qumarth Jash
 description: "A final year Computer Science student at the University of York"
 baseurl:     ""
-url:         ""
+url:         "qumarth.uk"
 date_format: "%b %-d, %Y"
 header_pages:
  - about.md
