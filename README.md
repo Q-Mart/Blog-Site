@@ -4,3 +4,7 @@ To run:
 ```bash
 bundle exec jekyll serve
 ```
+To update dependencies:
+```
+bundle update
+```
